@@ -11,27 +11,47 @@
 </head>
 <body>
     <div id="main-clock-container">
-        <label for="timeZones" id="timeZone-lable">Choose a timezone:</label>
+        <label for="timeZones" id="timeZone-lable">Select a timezone:</label>
         <select name="timeZones" id="timeZones">
-            <option value="Africa/Algiers">Algiers</option>
-            <option value="America/Chicago">Chicago</option>
-            <option value="Asia/Shanghai">China</option>
-            <option value="America/Denver">Denver</option>
-            <option value="Asia/Dubai">Dubai</option>
-            <option value="Africa/Cairo">Egypt</option>
-            <option value="Europe/Berlin">Germany</option>
-            <option value="America/Halifax">Halifax</option>
-            <option value="Europe/London">London</option>
-            <option value="America/Los_Angeles">Los Angeles</option>
-            <option value="America/New_York">New York</option>
-            <option value="Pacific/Auckland">New Zealnd</option>
-            <option value="Europe/Paris">Paris</option>
-            <option value="Europe/Moscow">Russia</option>
-            <option value="Asia/Shanghai">Shanghai</option>
-            <option value="Africa/Johannesburg">South Africa</option>
-            <option value="America/St_Johns">St Johns</option>
-            <option value="Australia/Sydney">Sydney</option>
-            <option value="Asia/Tokyo">Tokyo</option>
+            <option value="" disabled selected hidden></option>
+            <optgroup label="Africa">
+                <option value="Africa/Algiers">Algiers</option>
+                <option value="Africa/Cairo">Egypt</option>
+                <option value="Africa/Johannesburg">South Africa</option>
+            </optgroup>
+            <optgroup label="America">
+                <option value="America/Chicago">Chicago</option>
+                <option value="America/Denver">Denver</option>
+                <option value="America/Halifax">Halifax</option>
+                <option value="America/Jamaica">Jamaica</option>
+                <option value="America/Los_Angeles">Los Angeles</option>
+                <option value="America/Cancun">Mexico</option>
+                <option value="America/New_York">New York</option>
+                <option value="America/St_Johns">St Johns</option>
+            </optgroup>
+            <optgroup label="Asia">
+                <option value="Asia/Shanghai">China</option>
+                <option value="Asia/Dubai">Dubai</option>
+                <option value="Asia/Shanghai">Shanghai</option>
+                <option value="Asia/Tokyo">Tokyo</option>
+            </optgroup>
+            <optgroup label="Australia">
+                <option value="Australia/Sydney">Sydney</option>
+            </optgroup>
+            <optgroup label="Europe">
+                <option value="Europe/Prague">Czech Republic</option>
+                <option value="Europe/Berlin">Germany</option>
+                <option value="Europe/Berlin">Germany</option>
+                <option value="Europe/Rome">Italy</option>
+                <option value="Europe/London">London</option>
+                <option value="Europe/Paris">Paris</option>
+                <option value="Europe/Moscow">Russia</option>
+                <option value="Europe/Madrid">Spain</option>
+                <option value="Europe/Istanbul">Turkey</option>
+            </optgroup>
+            <optgroup label="Pacific">
+                <option value="Pacific/Auckland">New Zealnd</option>
+            </optgroup>
         </select>
         <p id="clock"></p>
         <script src="./dist/bundle.js"></script>

@@ -20,7 +20,14 @@ body{
     padding: 7px;
     appearance: none;
     cursor: pointer;
+    border: 2px solid black;
+    
 }
+
+#timeZones:hover{
+    border: 2px solid blue;
+}
+
 
 #clock{
     font-family: "Ubuntu", sans-serif;

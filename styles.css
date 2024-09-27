@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 body{
+    /* text-align: center; */
+}
+#main-clock-container{
     text-align: center;
 }
 
@@ -28,8 +31,14 @@ body{
     border: 2px solid blue;
 }
 
-
 #clock{
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+}
+
+#time-zone-list{
     font-family: "Ubuntu", sans-serif;
     font-weight: 400;
     font-style: normal;

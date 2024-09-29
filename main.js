@@ -7,6 +7,7 @@ dayjs.extend(timezone);
 
 const timeZoneDropdown = document.getElementById('timeZones');
 const dateTimeDisplay = document.getElementById('clock');
+const timezoneList = document.getElementById('time-zone-list');
 
 const updateTime = () => {
     const selectedTime = timeZoneDropdown.value;
@@ -15,7 +16,7 @@ const updateTime = () => {
 
     dateTimeDisplay.textContent = `${selectedTime} current time is ${currentTime}`
 
-    const timezoneList = document.getElementById('time-zone-list');
+    // const timezoneList = document.getElementById('time-zone-list');
     const newItem = document.createElement('li');
     newItem.innerText = dateTimeDisplay.textContent;
     timezoneList.appendChild(newItem);
@@ -47,7 +48,6 @@ const backgroundColor = () => {
         document.getElementById('time-zone-list').style.color = 'black';
     }else if(optionId == 'europe'){
         document.body.style.backgroundColor = 'green';
-        
         document.getElementById('clock').style.color = 'black';
         document.getElementById('timeZone-lable').style.color = 'black';
         document.getElementById('time-zone-list').style.color = 'black';
@@ -58,6 +58,14 @@ const backgroundColor = () => {
         document.getElementById('time-zone-list').style.color = 'black';
     }
 }
+
+const clearButton = document.getElementById('clear-button');
+
+const clearResults = () =>{
+    timezoneList.innerHTML = '';
+}
+
+clearButton.addEventListener('click', clearResults);
 
 timeZoneDropdown.addEventListener('change', () => {
     updateTime();

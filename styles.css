@@ -44,3 +44,23 @@ body{
     font-style: normal;
     font-size: large;
 }
+
+#clear-button-div{
+    text-align: center;
+}
+
+#clear-button{
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+    width: 150px;
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#clear-button:hover{
+    background-color: rgb(224, 255, 255);
+}

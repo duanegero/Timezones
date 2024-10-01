@@ -16,7 +16,6 @@ const updateTime = () => {
 
     dateTimeDisplay.textContent = `${selectedTime} current time is ${currentTime}`
 
-    // const timezoneList = document.getElementById('time-zone-list');
     const newItem = document.createElement('li');
     newItem.innerText = dateTimeDisplay.textContent;
     timezoneList.appendChild(newItem);
@@ -63,6 +62,8 @@ const clearButton = document.getElementById('clear-button');
 
 const clearResults = () =>{
     timezoneList.innerHTML = '';
+    document.body.style.backgroundColor = 'white';
+    document.getElementById('timeZone-lable').style = 'black';
 }
 
 clearButton.addEventListener('click', clearResults);

@@ -64,6 +64,7 @@ const clearResults = () =>{
     timezoneList.innerHTML = '';
     document.body.style.backgroundColor = 'white';
     document.getElementById('timeZone-lable').style = 'black';
+    dateTimeDisplay.textContent = '';
 }
 
 clearButton.addEventListener('click', clearResults);
@@ -72,5 +73,39 @@ timeZoneDropdown.addEventListener('change', () => {
     updateTime();
     backgroundColor();
 });
+
+const getTimeZoneFromCoordinates = (lat, long) => {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone; // Get the local timezone directly
+};
+
+
+document.getElementById('get-location-button').addEventListener('click', () => {
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const lat = position.coords.latitude;
+            const long = position.coords.longitude;
+            
+            const timezone = getTimeZoneFromCoordinates(lat, long);
+
+            document.getElementById('clock').textContent = `Timezone ${timezone}`
+
+            const currentTimeGeo = dayjs().tz(timezone).format('dddd, MMMM D, YYYY h:mm A');
+
+            dateTimeDisplay.textContent = `${timezone} current time is ${currentTimeGeo}`
+
+            dateTimeDisplay.style.color = 'black';
+            document.getElementById('time-zone-list').style.color = 'black';
+
+            const newItem = document.createElement('li');
+            newItem.innerText = dateTimeDisplay.textContent;
+            timezoneList.appendChild(newItem);
+        },
+        (error) => {
+            console.log('error', error);
+        }
+    );
+});
+
+
 
 window.onload = updateTime;

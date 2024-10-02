@@ -43,31 +43,37 @@ const backgroundColor = () => {
         document.getElementById('clock').style.color = 'white';
         document.getElementById('timeZone-lable').style.color = 'white';
         document.getElementById('time-zone-list').style.color = 'white';
+        document.getElementById('typedTimeZone-lable').style.color = 'white';
     }else if(optionId == 'america'){
         document.body.style.backgroundColor = 'blue';
         document.getElementById('clock').style.color = 'white';
         document.getElementById('timeZone-lable').style.color = 'white';
         document.getElementById('time-zone-list').style.color = 'white';
+        document.getElementById('typedTimeZone-lable').style.color = 'white';
     }else if(optionId == 'asia'){
         document.body.style.backgroundColor = 'yellow';
         document.getElementById('clock').style.color = 'black';
         document.getElementById('timeZone-lable').style.color = 'black';
         document.getElementById('time-zone-list').style.color = 'black';
+        document.getElementById('typedTimeZone-lable').style.color = 'black';
     }else if(optionId == 'australia'){
         document.body.style.backgroundColor = 'purple';
         document.getElementById('clock').style.color = 'black';
         document.getElementById('timeZone-lable').style.color = 'black';
         document.getElementById('time-zone-list').style.color = 'black';
+        document.getElementById('typedTimeZone-lable').style.color = 'black';
     }else if(optionId == 'europe'){
         document.body.style.backgroundColor = 'green';
         document.getElementById('clock').style.color = 'black';
         document.getElementById('timeZone-lable').style.color = 'black';
         document.getElementById('time-zone-list').style.color = 'black';
+        document.getElementById('typedTimeZone-lable').style.color = 'black';
     }else if(optionId == 'pacific'){
         document.body.style.backgroundColor = 'orange';
         document.getElementById('clock').style.color = 'black';
         document.getElementById('timeZone-lable').style.color = 'black';
         document.getElementById('time-zone-list').style.color = 'black';
+        document.getElementById('typedTimeZone-lable').style.color = 'black';
     }
 }
 
@@ -87,6 +93,8 @@ const clearResults = () =>{
 
     //setting the clock display to empty, which is the defaul
     dateTimeDisplay.textContent = '';
+
+    document.getElementById('typedTimeZone-lable').style.color = 'black';
 }
 
 //adding an event lister waiting for the clear button to be clicked
@@ -115,8 +123,6 @@ document.getElementById('get-location-button').addEventListener('click', () => {
             //creating a variable and calling function
             const timezone = getTimeZoneFromCoordinates();
 
-            //displaying the timeezone 
-            // document.getElementById('clock').textContent = `Timezone ${timezone}`
 
             //using dayjs to handle the current loction timezone, formatting the time to be readable
             const currentTimeGeo = dayjs().tz(timezone).format('dddd, MMMM D, YYYY h:mm A');
@@ -146,6 +152,47 @@ document.getElementById('get-location-button').addEventListener('click', () => {
     );
 });
 
+//creating a vairable to hold input from form
+const timeZoneInput = document.getElementById('typedTimeZone')
+
+//function to handle input from form, called with event listener
+const getTime = () => {
+    
+    //creating varible to hold value from form
+    const inputValue = timeZoneInput.value.trim();
+
+    //if statment to handle if input box is empty
+    if(!inputValue){
+        dateTimeDisplay.textContent = 'Please enter a valid timezone';
+        return;
+    }
+
+    //try and catch to display timezone and time if valid timezone is entered into form
+    try {
+        //dayjs to hold correct time, formatting for readablity 
+        const currentTime = dayjs().tz(inputValue).format('dddd, MMMM D, YYYY h:mm A');
+        
+        //display timezone and time from dayjs 
+        dateTimeDisplay.textContent = `${inputValue} current time is ${currentTime}`
+
+    } catch(error){//if not a valid timezone message to display
+        dateTimeDisplay.textContent = 'Invalid Timezone please try agian'
+    }
+        //changing the color of clock and lables 
+        document.getElementById('clock').style.color = 'white';
+        document.getElementById('timeZone-lable').style.color = 'white';
+        document.getElementById('time-zone-list').style.color = 'white';
+        document.body.style.backgroundColor = 'black';
+        document.getElementById('typedTimeZone-lable').style.color = 'white';
+
+        //adding new element to list, history
+        const newItem = document.createElement('li');
+        newItem.innerText = dateTimeDisplay.textContent;
+        timezoneList.appendChild(newItem);
+}
+
+
+document.getElementById('typedTimeZone-btn').addEventListener('click', getTime);
 
 //loading the content when the window loads 
 window.onload = updateTime;

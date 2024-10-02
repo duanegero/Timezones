@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="main-clock-container">
-        <label for="timeZones" id="timeZone-lable">Select a timezone:</label>
+        <label for="timeZones" id="timeZone-lable">Select a Timezone:</label>
         <select name="timeZones" id="timeZones">
             <option value="" disabled selected hidden></option>
             <optgroup label="Africa">
@@ -55,7 +55,14 @@
                 <option value="Pacific/Tongatapu" id="pacific">Tonga</option>
             </optgroup>
         </select>
+        <form>
+        <label for="typedTimeZone" id="typedTimeZone-lable">Type Timezone: Example (America/Halifax) </label>
+        <input type="text" id="typedTimeZone" name="typedTimeZone">
+        <div id="typedTimeZone-btn-div">
+            <button type="button" id="typedTimeZone-btn">Get Time</button>
+        </div>
         <p id="clock"></p>
+        </form>
     </div>
     <div id="time-selected-div">
         <ul id="time-zone-list"></ul>

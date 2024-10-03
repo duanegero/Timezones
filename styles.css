@@ -115,4 +115,67 @@
     padding: 7px;
     appearance: none;
     border: 2px solid black;
+    margin-bottom: 4px;
+}
+
+#timezone-header{
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size:40px;
+    text-align: center;
+    
+}
+
+#africa-header, #america-header, #asia-header, #australia-header, #europe-header, #pacific-header{
+    text-align: center;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+td, tr {
+    border: 2px solid white;
+    text-align: center;
+    padding: 5px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    word-wrap: break-word;
+    background-color: #b5fbfb;
+}
+
+table {
+    border-collapse: collapse;
+    overflow: auto;
+    width: 100%;
+    max-width: 600px;
+}
+
+#table-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#timezone-list-div {
+    text-align: center;
+    padding: 3px;
+}
+#timezone-list-btn{
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+    width: 150px;
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#timezone-list-btn:hover {
+    background-color: rgb(224, 255, 255);
 }
